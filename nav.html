@@ -1,0 +1,80 @@
+<!-- Navigation Bar -->
+<nav class="bg-white/90 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex items-center">
+                <a href="wpproj.html" class="font-['Pacifico'] text-primary text-2xl hover:text-primary/90 transition-colors">Ridebazzar</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="sell.html" class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
+                    Sell
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="buyitem.html" class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
+                    Buy
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="bookride.html" class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
+                    Book Ride
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="cart.html" class="relative text-gray-700 hover:text-primary transition-colors">
+                    <i class="ri-shopping-cart-line text-xl"></i>
+                    <span id="cartCount" class="absolute -top-2 -right-2 bg-primary text-white text-xs w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
+                </a>
+                <div id="authButtons">
+                    <!-- This will be dynamically updated based on login status -->
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+    function updateNavigation() {
+        const authButtons = document.getElementById('authButtons');
+        const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+
+        if (currentUser) {
+            // User is logged in - show profile button
+            authButtons.innerHTML = `
+                <div class="relative group">
+                    <button class="flex items-center space-x-2 text-gray-700 hover:text-primary transition-colors">
+                        <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                            <i class="ri-user-line text-primary"></i>
+                        </div>
+                        <span class="hidden md:inline">${currentUser.name}</span>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block">
+                        <a href="profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                        <a href="#" id="logoutBtn" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</a>
+                    </div>
+                </div>
+            `;
+
+            // Add logout functionality
+            document.getElementById('logoutBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('currentUser');
+                window.location.href = 'wpproj.html';
+            });
+        } else {
+            // User is not logged in - show login button
+            authButtons.innerHTML = `
+                <a href="login.html" class="bg-primary text-white px-4 py-2 rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors font-medium">Login / Sign Up</a>
+            `;
+        }
+    }
+
+    // Update navigation when the page loads
+    document.addEventListener('DOMContentLoaded', updateNavigation);
+
+    // Update navigation when storage changes (for when user logs in/out in another tab)
+    window.addEventListener('storage', function(e) {
+        if (e.key === 'currentUser') {
+            updateNavigation();
+        }
+    });
+</script> 

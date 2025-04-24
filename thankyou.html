@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Ridebazzar</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#f59e0b',
+                    },
+                    borderRadius: {
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation Bar -->
+    <nav class="bg-white/90 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="wpproj.html" class="font-['Pacifico'] text-primary text-2xl hover:text-primary/90 transition-colors">Ridebazzar</a>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="login.html" class="bg-primary text-white px-4 py-2 rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors font-medium">Login / Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Thank You Content -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="bg-white rounded-lg shadow-sm p-8 text-center">
+            <div class="mb-8">
+                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="ri-check-line text-4xl text-green-500"></i>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-900 mb-4">Thank You for Your Order!</h1>
+                <p class="text-lg text-gray-600 mb-6">Your order has been successfully placed.</p>
+                <div class="bg-gray-50 rounded-lg p-6 mb-8">
+                    <p class="text-sm text-gray-500 mb-2">Order Number</p>
+                    <p class="text-xl font-semibold text-gray-900" id="orderNumber"></p>
+                </div>
+            </div>
+
+            <div class="space-y-4 mb-8">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">What's Next?</h2>
+                <div class="flex items-start space-x-4 text-left">
+                    <div class="w-8 h-8 bg-blue-100 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="ri-mail-line text-primary"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-medium text-gray-900">Order Confirmation Email</h3>
+                        <p class="text-gray-600">We've sent you an email with your order details.</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4 text-left">
+                    <div class="w-8 h-8 bg-blue-100 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <i class="ri-truck-line text-primary"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-medium text-gray-900">Delivery Updates</h3>
+                        <p class="text-gray-600">We'll notify you when your order ships.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="wpproj.html" class="bg-primary text-white px-8 py-3 rounded-button hover:bg-primary/90 transition-colors font-medium">
+                    Continue Shopping
+                </a>
+                <a href="#" class="bg-gray-100 text-gray-700 px-8 py-3 rounded-button hover:bg-gray-200 transition-colors font-medium">
+                    View Order Details
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generate a random order number
+            const orderNumber = 'RB' + Date.now().toString().slice(-6) + Math.random().toString(36).substring(2, 5).toUpperCase();
+            document.getElementById('orderNumber').textContent = orderNumber;
+        });
+    </script>
+</body>
+</html> 

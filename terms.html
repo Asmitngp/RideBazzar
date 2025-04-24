@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Features & Terms - Ridebazzar</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3b82f6',
+            secondary: '#f59e0b',
+          },
+          borderRadius: {
+            button: '8px',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+    }
+    .feature-card {
+      transition: transform 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+<!-- Navigation Bar -->
+<nav class="bg-white/90 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <div class="flex items-center">
+        <a href="wpproj.html" class="font-['Pacifico'] text-primary text-2xl hover:text-primary/90 transition-colors">Ridebazzar</a>
+      </div>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="sell.html" class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
+          Sell
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="buyitem.html" class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
+          Buy
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="bookride.html" class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
+          Book Ride
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+      </div>
+      <div class="flex items-center space-x-6">
+        <a href="login.html" class="bg-primary text-white px-4 py-2 rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors font-medium">Login / Sign Up</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Features Section -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-800">Our Features</h2>
+      <p class="mt-4 text-lg text-gray-600">Discover what makes Ridebazzar the best choice for your rides</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Feature 1 -->
+      <div class="feature-card bg-white p-6 rounded-lg shadow-sm">
+        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+          <i class="ri-shield-check-line text-primary text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Safe & Secure</h3>
+        <p class="text-gray-600">Verified drivers, real-time tracking, and 24/7 support ensure your safety throughout the journey.</p>
+      </div>
+      <!-- Feature 2 -->
+      <div class="feature-card bg-white p-6 rounded-lg shadow-sm">
+        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+          <i class="ri-time-line text-primary text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">24/7 Availability</h3>
+        <p class="text-gray-600">Book rides anytime, anywhere. Our service is available round the clock to meet your needs.</p>
+      </div>
+      <!-- Feature 3 -->
+      <div class="feature-card bg-white p-6 rounded-lg shadow-sm">
+        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+          <i class="ri-money-dollar-circle-line text-primary text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Transparent Pricing</h3>
+        <p class="text-gray-600">No hidden charges. See the exact fare before booking and pay securely through multiple options.</p>
+      </div>
+      <!-- Feature 4 -->
+      <div class="feature-card bg-white p-6 rounded-lg shadow-sm">
+        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+          <i class="ri-map-pin-line text-primary text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Wide Coverage</h3>
+        <p class="text-gray-600">Extensive network covering major cities and towns. Find rides to any destination within our service area.</p>
+      </div>
+      <!-- Feature 5 -->
+      <div class="feature-card bg-white p-6 rounded-lg shadow-sm">
+        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+          <i class="ri-user-voice-line text-primary text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Customer Support</h3>
+        <p class="text-gray-600">Dedicated support team available 24/7 to assist you with any queries or concerns.</p>
+      </div>
+      <!-- Feature 6 -->
+      <div class="feature-card bg-white p-6 rounded-lg shadow-sm">
+        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+          <i class="ri-car-line text-primary text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Multiple Vehicle Options</h3>
+        <p class="text-gray-600">Choose from a variety of vehicles to suit your needs and budget.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Terms & Conditions Section -->
+<section class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-800">Terms & Conditions</h2>
+      <p class="mt-4 text-lg text-gray-600">Please read these terms carefully before using our service</p>
+    </div>
+    <div class="bg-white rounded-lg shadow-sm p-8">
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">1. Service Usage</h3>
+          <p class="text-gray-600">By using Ridebazzar's services, you agree to comply with all applicable laws and regulations. You must be at least 18 years old to use our service.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">2. Booking & Cancellation</h3>
+          <p class="text-gray-600">Rides can be booked up to 30 days in advance. Cancellations made less than 2 hours before the scheduled pickup may incur a cancellation fee.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">3. Payment Terms</h3>
+          <p class="text-gray-600">All payments must be made through our secure payment gateway. We accept various payment methods including credit/debit cards and digital wallets.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">4. Safety & Conduct</h3>
+          <p class="text-gray-600">Users must maintain appropriate behavior during rides. Any form of harassment or misconduct will result in immediate termination of service.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">5. Privacy Policy</h3>
+          <p class="text-gray-600">We collect and process your personal data in accordance with our Privacy Policy. Your data is protected and will not be shared with third parties without consent.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">6. Liability</h3>
+          <p class="text-gray-600">Ridebazzar is not liable for any delays, accidents, or incidents that occur during the ride. We maintain insurance coverage for all our vehicles and drivers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-white border-t border-gray-200 py-6">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <p class="text-sm text-gray-500">© 2025 Ridebazzar. All rights reserved.</p>
+      <div class="flex space-x-6">
+        <a href="#" class="text-sm text-gray-500 hover:text-gray-700">Privacy Policy</a>
+        <a href="#" class="text-sm text-gray-500 hover:text-gray-700">Terms of Service</a>
+        <a href="#" class="text-sm text-gray-500 hover:text-gray-700">Help Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html> 

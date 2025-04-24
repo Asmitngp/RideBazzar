@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Ridebazzar</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3b82f6',
+            secondary: '#f59e0b',
+          },
+          borderRadius: {
+            button: '8px',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+    }
+    .password-toggle {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+    .form-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      background-color: #fff;
+      color: #1f2937;
+      font-size: 0.875rem;
+      transition: border-color 0.2s ease;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+    .social-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      background-color: #fff;
+      color: #4b5563;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: background-color 0.2s ease;
+    }
+    .social-button:hover {
+      background-color: #f9fafb;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <!-- Navigation Bar -->
+  <nav class="bg-white/90 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="#" class="font-['Pacifico'] text-primary text-2xl">Ridebazzar</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Login Form -->
+  <div class="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-md w-full space-y-8 bg-white p-8 rounded-lg shadow-sm">
+      <div class="text-center">
+        <h2 class="mt-2 text-3xl font-bold text-gray-800">Welcome Back</h2>
+        <p class="mt-2 text-sm text-gray-600">Log in to continue to Ridebazzar</p>
+      </div>
+      <form class="mt-8 space-y-6" id="login-form">
+        <div class="space-y-4">
+          <!-- Email Field -->
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">College Email Address</label>
+            <div class="relative">
+              <input id="email" name="email" type="email" required class="form-input" placeholder="bt23cse001@iiitn.ac.in" />
+            </div>
+          </div>
+          <!-- Password Field -->
+          <div>
+            <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <div class="relative">
+              <input id="password" name="password" type="password" required class="form-input" placeholder="••••••••" />
+              <div class="password-toggle text-gray-400" id="passwordToggle">
+                <i class="ri-eye-off-line"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-button shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+            Log In
+          </button>
+        </div>
+      </form>
+      <!-- Social Login -->
+      <div class="mt-6">
+        <div class="relative">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-gray-200"></div>
+          </div>
+          <div class="relative flex justify-center text-sm">
+            <span class="px-2 bg-white text-gray-500">Or continue with</span>
+          </div>
+        </div>
+        <div class="mt-6 grid grid-cols-2 gap-3">
+          <button type="button" class="social-button">
+            <i class="ri-google-fill mr-2"></i> Google
+          </button>
+          <button type="button" class="social-button">
+            <i class="ri-facebook-fill mr-2"></i> Facebook
+          </button>
+        </div>
+      </div>
+      <!-- Account Creation Prompt -->
+      <div class="text-center mt-4">
+        <p class="text-sm text-gray-600">
+          Not a user?
+          <a href="regis.html" class="font-medium text-primary hover:underline">Create a new account</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-gray-200 py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="text-sm text-gray-500">© 2025 Ridebazzar. All rights reserved.</p>
+        <div class="flex space-x-6">
+          <a href="#" class="text-sm text-gray-500 hover:text-gray-700">Privacy Policy</a>
+          <a href="#" class="text-sm text-gray-500 hover:text-gray-700">Terms of Service</a>
+          <a href="#" class="text-sm text-gray-500 hover:text-gray-700">Help Center</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Password visibility toggle
+    document.getElementById('passwordToggle').addEventListener('click', function () {
+      const passwordField = document.getElementById('password');
+      const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordField.setAttribute('type', type);
+      const icon = this.querySelector('i');
+      icon.classList.toggle('ri-eye-line');
+      icon.classList.toggle('ri-eye-off-line');
+    });
+
+    // Dummy login handler
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Login successful! Redirecting...');
+      // Replace with your route
+      window.location.href = '#';
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"></script>
+  <script src="users.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const loginForm = document.getElementById('login-form');
+      const errorMessage = document.createElement('div');
+      errorMessage.className = 'text-red-500 text-sm mt-2 text-center';
+      loginForm.appendChild(errorMessage);
+
+      loginForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // Get form values
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        try {
+          // Send login request to API
+          const response = await fetch('http://localhost:3000/api/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              email,
+              password
+            })
+          });
+
+          const data = await response.json();
+
+          if (!response.ok) {
+            throw new Error(data.error);
+          }
+
+          // Store user session
+          localStorage.setItem('currentUser', JSON.stringify(data));
+
+          // Show success message
+          errorMessage.textContent = 'Login successful! Redirecting...';
+          errorMessage.classList.remove('text-red-500');
+          errorMessage.classList.add('text-green-500');
+
+          // Redirect to home page after 1 second
+          setTimeout(() => {
+            window.location.href = 'wpproj.html';
+          }, 1000);
+
+        } catch (error) {
+          errorMessage.textContent = error.message;
+          errorMessage.classList.remove('text-green-500');
+          errorMessage.classList.add('text-red-500');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

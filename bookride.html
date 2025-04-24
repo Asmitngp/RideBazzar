@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book a Ride - Ridebazzar</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3b82f6',
+            secondary: '#f59e0b',
+          },
+          borderRadius: {
+            button: '8px',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+    }
+    .hero-section {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: calc(100vh - 64px);
+    }
+    @media (max-width: 640px) {
+      .hero-section {
+        height: 100vh;
+      }
+    }
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    .form-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      background-color: #fff;
+      color: #1f2937;
+      font-size: 0.875rem;
+      transition: border-color 0.2s ease;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+<!-- Navigation Bar -->
+<nav class="bg-white/90 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <div class="flex items-center">
+        <a href="wpproj.html" class="font-['Pacifico'] text-primary text-2xl hover:text-primary/90 transition-colors">Ridebazzar</a>
+      </div>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="sell.html" class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
+          Sell
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="buyitem.html" class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
+          Buy
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="bookride.html" class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
+          Book Ride
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+      </div>
+      <div class="flex items-center space-x-6">
+        <a href="login.html" class="bg-primary text-white px-4 py-2 rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors font-medium">Login / Sign Up</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero-section flex items-center justify-center">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="animate-float">
+      <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight">
+        Your Ride, <br class="sm:hidden">
+        <span class="text-primary">On Your Demand</span>
+      </h1>
+      <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+        Experience hassle-free travel with our premium ride service. Available 24/7, anywhere in the city.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="#book-ride-form" class="bg-primary text-white px-8 py-4 rounded-button hover:bg-primary/90 transition-all transform hover:scale-105 font-semibold text-lg w-full sm:w-auto">
+          Book Now
+        </a>
+        <a href="terms.html" class="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-button hover:bg-white/20 transition-all font-semibold text-lg w-full sm:w-auto">
+          Learn More
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Book Ride Form -->
+<div id="book-ride-form" class="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
+  <div class="max-w-md w-full space-y-8 bg-white p-8 rounded-lg shadow-sm">
+    <div class="text-center">
+      <h2 class="text-3xl font-bold text-gray-800">Book a Ride</h2>
+      <p class="mt-2 text-sm text-gray-600">Find a ride to your destination</p>
+    </div>
+
+    <form id="bookRideForm" class="space-y-6">
+      <!-- From Location -->
+      <div>
+        <label for="from" class="block text-sm font-medium text-gray-700 mb-1">From</label>
+        <input type="text" id="from" name="from" required class="form-input" placeholder="Starting point"/>
+      </div>
+
+      <!-- To Location -->
+      <div>
+        <label for="to" class="block text-sm font-medium text-gray-700 mb-1">To</label>
+        <input type="text" id="to" name="to" required class="form-input" placeholder="Destination"/>
+      </div>
+
+      <!-- Date and Time -->
+      <div>
+        <label for="dateTime" class="block text-sm font-medium text-gray-700 mb-1">Date & Time</label>
+        <input type="datetime-local" id="dateTime" name="dateTime" required class="form-input"/>
+      </div>
+
+      <!-- Number of Seats -->
+      <div>
+        <label for="seats" class="block text-sm font-medium text-gray-700 mb-1">Number of Seats</label>
+        <input type="number" id="seats" name="seats" required min="1" max="10" class="form-input" placeholder="e.g. 2"/>
+      </div>
+
+      <!-- Ride Type -->
+      <div>
+        <label for="rideType" class="block text-sm font-medium text-gray-700 mb-1">Ride Type</label>
+        <select id="rideType" name="rideType" class="form-input" required>
+          <option value="" disabled selected>Select ride type</option>
+          <option value="one-way">One-way</option>
+          <option value="round-trip">Round trip</option>
+        </select>
+      </div>
+
+      <!-- Submit Button -->
+      <div>
+        <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-button shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+          Book Ride
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-white border-t border-gray-200 py-6">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <p class="text-sm text-gray-500">© 2025 Ridebazzar. All rights reserved.</p>
+      <div class="flex space-x-6">
+        <a href="#" class="text-sm text-gray-500 hover:text-gray-700">Privacy Policy</a>
+        <a href="#" class="text-sm text-gray-500 hover:text-gray-700">Terms of Service</a>
+        <a href="#" class="text-sm text-gray-500 hover:text-gray-700">Help Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Script -->
+<script>
+  // Smooth scroll to form when clicking Book Now button
+  document.querySelector('a[href="#book-ride-form"]').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('book-ride-form').scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+
+  document.getElementById('bookRideForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('Ride booked successfully!');
+    // redirect or handle data
+  });
+</script>
+
+</body>
+</html>

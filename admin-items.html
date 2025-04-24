@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items Admin Panel - Ridebazzar</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen">
+        <!-- Navigation -->
+        <nav class="bg-white shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex items-center space-x-4">
+                        <a href="admin.html" class="text-xl font-bold text-primary">Ridebazzar Admin</a>
+                        <div class="flex space-x-4">
+                            <a href="admin.html" class="text-gray-600 hover:text-primary">Users</a>
+                            <a href="admin-items.html" class="text-primary font-medium">Items</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <a href="wpproj.html" class="text-gray-600 hover:text-primary">Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+            <div class="bg-white shadow-sm rounded-lg p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h1 class="text-2xl font-bold text-gray-900">Items Database</h1>
+                    <button id="refreshBtn" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90">
+                        Refresh Data
+                    </button>
+                </div>
+                
+                <!-- Items Table -->
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="itemsTableBody" class="bg-white divide-y divide-gray-200">
+                            <!-- Items will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to load items
+        async function loadItems() {
+            try {
+                const response = await fetch('http://localhost:3000/api/items');
+                const items = await response.json();
+                const tableBody = document.getElementById('itemsTableBody');
+                tableBody.innerHTML = '';
+
+                items.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${item.id}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${item.title}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$${item.price}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${item.category}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                                ${item.status === 'available' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">
+                                ${item.status}
+                            </span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            <button onclick="editItem(${item.id})" class="text-primary hover:text-primary/80 mr-2">Edit</button>
+                            <button onclick="deleteItem(${item.id})" class="text-red-600 hover:text-red-800">Delete</button>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error fetching items:', error);
+                alert('Error loading items data. Please make sure the server is running.');
+            }
+        }
+
+        // Function to edit item
+        async function editItem(itemId) {
+            try {
+                const response = await fetch(`http://localhost:3000/api/items/${itemId}`);
+                const item = await response.json();
+                
+                // Create edit form
+                const form = document.createElement('form');
+                form.className = 'space-y-4';
+                form.innerHTML = `
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Title</label>
+                        <input type="text" name="title" value="${item.title}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Price</label>
+                        <input type="number" name="price" value="${item.price}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Status</label>
+                        <select name="status" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                            <option value="available" ${item.status === 'available' ? 'selected' : ''}>Available</option>
+                            <option value="sold" ${item.status === 'sold' ? 'selected' : ''}>Sold</option>
+                        </select>
+                    </div>
+                `;
+
+                // Show modal with form
+                if (confirm('Edit this item?')) {
+                    const result = await fetch(`http://localhost:3000/api/items/${itemId}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            title: form.title.value,
+                            price: form.price.value,
+                            status: form.status.value
+                        })
+                    });
+
+                    if (result.ok) {
+                        alert('Item updated successfully');
+                        loadItems();
+                    } else {
+                        alert('Error updating item');
+                    }
+                }
+            } catch (error) {
+                console.error('Error editing item:', error);
+                alert('Error editing item');
+            }
+        }
+
+        // Function to delete item
+        async function deleteItem(itemId) {
+            if (confirm('Are you sure you want to delete this item?')) {
+                try {
+                    const response = await fetch(`http://localhost:3000/api/items/${itemId}`, {
+                        method: 'DELETE'
+                    });
+
+                    if (response.ok) {
+                        alert('Item deleted successfully');
+                        loadItems();
+                    } else {
+                        alert('Error deleting item');
+                    }
+                } catch (error) {
+                    console.error('Error deleting item:', error);
+                    alert('Error deleting item');
+                }
+            }
+        }
+
+        // Load items when page loads
+        document.addEventListener('DOMContentLoaded', loadItems);
+
+        // Refresh button functionality
+        document.getElementById('refreshBtn').addEventListener('click', loadItems);
+    </script>
+</body>
+</html> 
