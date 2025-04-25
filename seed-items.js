@@ -94,7 +94,7 @@ const featuredItems = [
     }
 ];
 
-// Function to cleanup and seed
+//Function to cleanup and seed
 function cleanupAndSeed() {
     // First delete all existing items
     db.run('DELETE FROM items', (err) => {

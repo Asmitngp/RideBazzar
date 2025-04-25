@@ -718,7 +718,7 @@ const productsDB = {
     if (index !== -1) {
       this.products[index] = {
         ...this.products[index],
-        ...updates
+        ...updates 
       };
       return this.products[index];
     }
@@ -756,4 +756,8 @@ const productsDB = {
 // Export the database
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = productsDB;
-} 
+}
+
+window.viewProduct = function(productId) {
+  window.location.href = `product-detail.html?id=${productId}`;
+}; 

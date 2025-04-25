@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Ridebazzar</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#f59e0b',
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Navigation Bar -->
+    <nav class="bg-white/90 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="wpproj.html" class="font-['Pacifico'] text-primary text-2xl hover:text-primary/90 transition-colors">Ridebazzar</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="sell.html" class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
+                        Sell
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="buyitem.html" class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
+                        Buy
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="bookride.html" class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
+                        Book Ride
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="cart.html" class="relative text-gray-700 hover:text-primary transition-colors">
+                        <i class="ri-shopping-cart-line text-xl"></i>
+                        <span id="cartCount" class="absolute -top-2 -right-2 bg-primary text-white text-xs w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
+                    </a>
+                    <a href="login.html" class="bg-primary text-white px-4 py-2 rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors font-medium">Login / Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-primary to-blue-600 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="font-['Pacifico'] text-5xl md:text-6xl mb-6">About Ridebazzar</h1>
+                <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
+                    Your one-stop platform for buying, selling, and booking rides. We're revolutionizing the way people trade and travel.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mission Section -->
+    <div class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Mission</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    To create a seamless marketplace where people can buy and sell items, book rides, and connect with others in their community.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Key Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Buy Feature -->
+                <div class="feature-card bg-white rounded-xl p-6 shadow-sm">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="ri-shopping-bag-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Buy Items</h3>
+                    <p class="text-gray-600">
+                        Browse through a wide range of products, from electronics to vehicles. Find great deals and make secure purchases.
+                    </p>
+                </div>
+
+                <!-- Sell Feature -->
+                <div class="feature-card bg-white rounded-xl p-6 shadow-sm">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="ri-store-2-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Sell Items</h3>
+                    <p class="text-gray-600">
+                        List your items easily, reach potential buyers, and manage your sales efficiently with our seller tools.
+                    </p>
+                </div>
+
+                <!-- Book Ride Feature -->
+                <div class="feature-card bg-white rounded-xl p-6 shadow-sm">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="ri-car-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Book Rides</h3>
+                    <p class="text-gray-600">
+                        Find reliable rides for your daily commute or special occasions. Connect with verified drivers in your area.
+                    </p>
+                </div>
+
+                <!-- Secure Payments -->
+                <div class="feature-card bg-white rounded-xl p-6 shadow-sm">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="ri-shield-check-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Secure Payments</h3>
+                    <p class="text-gray-600">
+                        Enjoy peace of mind with our secure payment system. All transactions are protected and encrypted.
+                    </p>
+                </div>
+
+                <!-- User Reviews -->
+                <div class="feature-card bg-white rounded-xl p-6 shadow-sm">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="ri-star-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">User Reviews</h3>
+                    <p class="text-gray-600">
+                        Read and write reviews to help build a trustworthy community. Make informed decisions based on real experiences.
+                    </p>
+                </div>
+
+                <!-- Customer Support -->
+                <div class="feature-card bg-white rounded-xl p-6 shadow-sm">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="ri-customer-service-2-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">24/7 Support</h3>
+                    <p class="text-gray-600">
+                        Get help whenever you need it. Our support team is available round the clock to assist you.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Our Team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden">
+                        <img src="https://placehold.co/400x400/3b82f6/ffffff?text=Karuna" alt="Karuna" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900">Karuna</h3>
+                </div>
+                <div class="text-center">
+                    <div class="w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden">
+                        <img src="https://placehold.co/400x400/3b82f6/ffffff?text=Harshit" alt="Harshit" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900">Harshit</h3>
+                </div>
+                <div class="text-center">
+                    <div class="w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden">
+                        <img src="https://placehold.co/400x400/3b82f6/ffffff?text=Vikas" alt="Vikas" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900">Vikas</h3>
+                </div>
+                <div class="text-center">
+                    <div class="w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden">
+                        <img src="https://placehold.co/400x400/3b82f6/ffffff?text=Asmit" alt="Asmit" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900">Asmit</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-gray-500">© 2025 Ridebazzar. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-sm text-gray-500 hover:text-gray-700">Privacy Policy</a>
+                    <a href="#" class="text-sm text-gray-500 hover:text-gray-700">Terms of Service</a>
+                    <a href="#" class="text-sm text-gray-500 hover:text-gray-700">Help Center</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize cart from localStorage
+            cartDB.loadFromLocalStorage();
+
+            // Update cart count
+            const cartCount = document.getElementById('cartCount');
+            const count = cartDB.getTotalItems();
+            cartCount.textContent = count;
+            cartCount.classList.toggle('hidden', count === 0);
+        });
+    </script>
+</body>
+</html> 

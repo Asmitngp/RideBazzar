@@ -27,8 +27,9 @@ const cartDB = {
     },
 
     // Remove item from cart
+    // will make a new cart and push the items to it which doesnot match which given product id which is to be removed
     removeItem: function(productId) {
-        this.items = this.items.filter(item => item.id !== productId);
+        this.items = this.items.filter(item => item.id !== productId);  
         this.saveToLocalStorage();
     },
 
@@ -70,6 +71,7 @@ const cartDB = {
         localStorage.setItem('cart', JSON.stringify(this.items));
         console.log('Cart saved to localStorage:', this.items);
     },
+
 
     // Load cart from localStorage
     loadFromLocalStorage: function() {
