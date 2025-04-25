@@ -7,7 +7,7 @@ const productsDB = {
       id: 1,
       name: "iPhone 14 Pro Max",
       category: "electronics",
-      price: 60000,
+      price: 120000,
       quantity: 1,
       condition: "new",
       description: "256GB, Deep Purple, Excellent condition",
